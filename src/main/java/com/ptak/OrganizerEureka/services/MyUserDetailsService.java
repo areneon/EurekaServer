@@ -1,5 +1,6 @@
 package com.ptak.OrganizerEureka.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,8 +11,12 @@ import java.util.ArrayList;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {
+
+    @Autowired
+    PersistanceService persistanceService;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return new User("cyga", "password", new ArrayList<>());
+        return persistanceService.getUserByUsernameFromDatabase(username);
     }
 }
