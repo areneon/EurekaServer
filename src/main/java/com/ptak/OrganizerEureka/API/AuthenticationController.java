@@ -4,6 +4,7 @@ import com.ptak.OrganizerEureka.model.AuthenticationRequest;
 import com.ptak.OrganizerEureka.model.AuthenticatonResponse;
 import com.ptak.OrganizerEureka.services.MyUserDetailsService;
 import com.ptak.OrganizerEureka.util.JwtUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("security")
+@Slf4j
 public class AuthenticationController {
 
     @Autowired
